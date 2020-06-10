@@ -14,6 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 find_package(Eigen3 REQUIRED)
 find_package(PCL REQUIRED)
+find_package(octomap REQUIRED)
 
 set(Eigen3_INCLUDE_DIRS ${EIGEN3_INCLUDE_DIR})
 
@@ -27,6 +28,7 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 include_directories(${PROJECT_SOURCE_DIR}/third_party/mosek/include)
 include_directories(${PROJECT_SOURCE_DIR}/third_party/sdf_tools/include)
 
+
 include_directories(
     include 
     SYSTEM 
@@ -34,6 +36,7 @@ include_directories(
     ${catkin_INCLUDE_DIRS} 
     ${Eigen3_INCLUDE_DIRS} 
     ${PCL_INCLUDE_DIRS}
+    ${OCTOMAP_INCLUDE_DIRS}
 )
 
 set(CMAKE_CXX_FLAGS "-std=c++0x ${CMAKE_CXX_FLAGS} -O3 -Wall") # -Wextra -Werror
@@ -59,7 +62,17 @@ add_executable ( random_forest_sensing src/random_forest_sensing.cpp )
 target_link_libraries( random_forest_sensing
                         ${catkin_LIBRARIES}
                         ${PCL_LIBRARIES}
+                        ${OCTOMAP_LIBRARIES}
 )
+
+
+add_executable ( random_forest_sensing_from_octomap src/random_forest_sensing_from_octomap.cpp )
+target_link_libraries( random_forest_sensing_from_octomap
+                        ${catkin_LIBRARIES}
+                        ${PCL_LIBRARIES}
+                        ${OCTOMAP_LIBRARIES}
+)
+
 
 add_executable ( odom_generator src/odom_generator.cpp )
 target_link_libraries( odom_generator

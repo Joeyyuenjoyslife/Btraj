@@ -1,8 +1,8 @@
 <launch>
 
-<arg name="map_size_x" default="50.0"/>
+<arg name="map_size_x" default="100.0"/>
 <arg name="map_size_y" default="50.0"/>
-<arg name="map_size_z" default=" 5.0"/>
+<arg name="map_size_z" default=" 15.0"/>
 
 <arg name="init_x" default="-20.0"/>
 <arg name="init_y" default="-20.0"/>
@@ -30,8 +30,8 @@
       <param name="planning/inflate_iter"  value="200"  />
       <param name="planning/step_length"   value="1"    />
       <param name="planning/cube_margin"   value="0.0"  />
-      <param name="planning/max_vel"       value="2.0"  />
-      <param name="planning/max_acc"       value="2.0"  />
+      <param name="planning/max_vel"       value="3.0"  />
+      <param name="planning/max_acc"       value="3.0"  />
       <param name="planning/check_horizon" value="10.0" />
       <param name="planning/stop_horizon"  value=" 3.0" />
       <param name="planning/is_limit_vel"  value="true" />
@@ -70,13 +70,13 @@
       <param name="map/x_size"     value="$(arg map_size_x)" />
       <param name="map/y_size"     value="$(arg map_size_y)" />
       <param name="map/z_size"     value="$(arg map_size_z)" />
-      <param name="map/obs_num"    value="520"/>        
+      <param name="map/obs_num"    value="3000"/>        
       <param name="map/resolution" value="0.2"/>        
       <param name="ObstacleShape/lower_rad" value="0.3"/>
       <param name="ObstacleShape/upper_rad" value="1.6"/>
       <param name="ObstacleShape/lower_hei" value="1.0"/>
       <param name="ObstacleShape/upper_hei" value="6.0"/>        
-      <param name="sensing/radius" value="15.0"/>        
+      <param name="sensing/radius" value="100.0"/>        
       <param name="sensing/rate"   value="10.0"/>        
   </node>
 

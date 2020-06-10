@@ -13,10 +13,12 @@
 #include <Eigen/Eigen>
 #include <math.h>
 #include <random>
+#include <octomap/octomap.h>
+#include <octomap/OcTree.h>
 
 using namespace std;
 
-pcl::search::KdTree<pcl::PointXYZ> kdtreeLocalMap;
+pcl::search::KdTree<pcl::PointXYZ> kdtreeLocalMap;//use kdtree structure to maintain local map
 vector<int>     pointIdxRadiusSearch;
 vector<float>   pointRadiusSquaredDistance;        
 
@@ -43,7 +45,7 @@ bool _has_odom = false;
 
 sensor_msgs::PointCloud2 localMap_pcd;
 sensor_msgs::PointCloud2 globalMap_pcd;
-pcl::PointCloud<pcl::PointXYZ> cloudMap;
+pcl::PointCloud<pcl::PointXYZ> cloudMap;  //   obstacle Map
 
 void RandomMapGenerate()
 {    
